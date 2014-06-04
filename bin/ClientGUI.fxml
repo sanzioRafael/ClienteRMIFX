@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.media.*?>
+<?import javafx.scene.media.MediaView?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="Client">
+  <!-- TODO Add Nodes -->
+  <children>
+    <TabPane layoutX="0.0" layoutY="0.0" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
+      <tabs>
+        <Tab fx:id="tabConexao" closable="true" style="-fx-padding: 5 10 5 10;&#10;-fx-font-family: &quot;Helvetica&quot;;&#10;-fx-font-size: 12px;&#10;-fx-font-weight: bold;&#10;-fx-background-color: linear-gradient(#232723 0%, #fff 25%, #fff 75%, #232723 100%);&#10;-fx-background-radius: 15;&#10;&#10;" text="Conexao">
+          <content>
+            <AnchorPane prefHeight="331.0000999999975" prefWidth="473.0" style="-fx-background-color: #c3c4c4;&#10;&#9;&#10;&#9;">
+              <!-- TODO Add Nodes -->
+              <children>
+                <Button layoutX="288.0" layoutY="47.0" mnemonicParsing="false" onAction="#btnConectarOnAction" style="-fx-text-fill: white;&#10;&#9;-fx-padding: 5 10 5 10;&#10;&#9;-fx-font-family: &quot;Helvetica&quot;;&#10;&#9;-fx-font-size: 12px;&#10;&#9;-fx-font-weight: bold;&#10;&#9;-fx-background-color: linear-gradient(#686868 0%, #232723 25%, #373837 75%, #757575 100%);&#10;&#9;-fx-background-insets: 0;&#10;&#9;-fx-background-radius: 9;" text="Conectar" />
+                <TextField id="tfConectar" fx:id="tfServidor" layoutX="30.0" layoutY="47.0" prefWidth="144.0" />
+                <TextField fx:id="tfPorta" layoutX="197.0" layoutY="47.0" prefWidth="66.0" />
+                <Text layoutX="34.0" layoutY="38.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Endereço do Servidor" />
+                <Text layoutX="213.0" layoutY="38.0" scaleX="1.0" scaleY="0.9999999999563324" strokeType="OUTSIDE" strokeWidth="0.0" text="Porta" />
+                <Label fx:id="lblConexao" layoutX="405.0" layoutY="52.0" text="Desconectado" textFill="RED">
+                  <font>
+                    <Font name="System Bold" size="13.0" />
+                  </font>
+                </Label>
+                <Label layoutX="88.0" layoutY="171.0" prefHeight="34.0" prefWidth="436.0" style="-fx-fill: linear-gradient(#686868 0%, #232723 25%, #373837 75%, #757575 100%);&#10;-fx-font-family: &quot;Helvetica&quot;;&#10;-fx-font-size: 15px;&#10;-fx-font-weight: bold;" text="Bem Vindo ao Programa de Comunicação com Servidor RMI." textFill="#080066" />
+                <Label layoutX="179.0" layoutY="217.0" style="-fx-font-family: &quot;Helvetica&quot;;&#10;-fx-font-size: 15px;&#10;-fx-font-weight: bold;" text="Para começar, conecte ao servidor!" textFill="#006299" />
+                <Separator layoutX="-3.0" layoutY="132.0" prefWidth="607.0" style="-fx-background-color: linear-gradient(#686868 0%, #232723 25%, #373837 75%, #757575 100%);" />
+                <Separator layoutX="-3.0" layoutY="347.0" prefWidth="607.0" style="-fx-background-color: linear-gradient(#686868 0%, #232723 25%, #373837 75%, #757575 100%);" />
+                <Label fx:id="lblData" layoutX="34.0" layoutY="100.0" text="" />
+              </children>
+            </AnchorPane>
+          </content>
+        </Tab>
+        <Tab style="-fx-padding: 5 10 5 10;&#10;-fx-font-family: &quot;Helvetica&quot;;&#10;-fx-font-size: 12px;&#10;-fx-font-weight: bold;&#10;-fx-background-color: linear-gradient(#232723 0%, #fff 25%, #fff 75%, #232723 100%);&#10;-fx-background-radius: 15;" text="Armazenar">
+          <content>
+            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #c3c4c4;">
+              <children>
+                <TextField id="tfCaminho" fx:id="tfCaminhoArmaze" layoutX="42.0" layoutY="34.0" prefWidth="233.0" />
+                <Button layoutX="300.0" layoutY="34.0" mnemonicParsing="false" onAction="#btnSelecionarArmazeOnAction" style="-fx-text-fill: white;&#10;-fx-padding: 5 10 5 10;&#10;-fx-font-family: &quot;Helvetica&quot;;&#10;-fx-font-size: 12px;&#10;-fx-font-weight: bold;&#10;-fx-background-color: linear-gradient(#686868 0%, #232723 25%, #373837 75%, #757575 100%);&#10;-fx-background-radius: 9;" text="Selecionar Arquivo" />
+                <Button layoutX="314.0" layoutY="87.0" mnemonicParsing="false" onAction="#btnEnviarArmazOnAction" style="-fx-text-fill: white;&#10;&#9;-fx-padding: 5 10 5 10;&#10;&#9;-fx-font-family: &quot;Helvetica&quot;;&#10;&#9;-fx-font-size: 12px;&#10;&#9;-fx-font-weight: bold;&#10;&#9;-fx-background-color: linear-gradient(#686868 0%, #232723 25%, #373837 75%, #757575 100%);&#10;&#9;-fx-background-insets: 0;&#10;&#9;-fx-background-radius: 9;" text="Enviar" />
+                <Label layoutX="92.0" layoutY="147.0" prefHeight="21.0" prefWidth="233.0" text="" />
+                <Label fx:id="lblArmazena" layoutX="42.0" layoutY="147.0" text="">
+                  <font>
+                    <Font size="14.0" fx:id="x1" />
+                  </font>
+                </Label>
+              </children>
+            </AnchorPane>
+          </content>
+        </Tab>
+        <Tab style="-fx-padding: 5 10 5 10;&#10;-fx-font-family: &quot;Helvetica&quot;;&#10;-fx-font-size: 12px;&#10;-fx-font-weight: bold;&#10;-fx-background-color: linear-gradient(#232723 0%, #fff 25%, #fff 75%, #232723 100%);&#10;-fx-background-radius: 15;" text="Zipar">
+          <content>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #c3c4c4;">
+              <children>
+                <Button layoutX="300.0" layoutY="34.0" mnemonicParsing="false" onAction="#btnSelecionarZipOnAction" style="-fx-text-fill: white;&#10;-fx-padding: 5 10 5 10;&#10;-fx-font-family: &quot;Helvetica&quot;;&#10;-fx-font-size: 12px;&#10;-fx-font-weight: bold;&#10;-fx-background-color: linear-gradient(#686868 0%, #232723 25%, #373837 75%, #757575 100%);&#10;-fx-background-radius: 9;" text="Selecionar primeiro arquivo" textAlignment="LEFT" />
+                <TextField id="tfCaminho" fx:id="tfCaminhoZip" layoutX="42.0" layoutY="34.0" prefWidth="233.0" />
+                <Button layoutX="300.0" layoutY="71.0" mnemonicParsing="false" onAction="#btnSelecionarZipDoisOnAction" style="-fx-text-fill: white;&#10;-fx-padding: 5 10 5 10;&#10;-fx-font-family: &quot;Helvetica&quot;;&#10;-fx-font-size: 12px;&#10;-fx-font-weight: bold;&#10;-fx-background-color: linear-gradient(#686868 0%, #232723 25%, #373837 75%, #757575 100%);&#10;-fx-background-radius: 9;" text="Selecionar segundo arquivo" />
+                <TextField id="tfCaminho" fx:id="tfCaminhoZip2" layoutX="42.0" layoutY="71.0" prefWidth="233.0" />
+                <Button font="$x1" layoutX="300.0" layoutY="137.0" mnemonicParsing="false" onAction="#btnEnviarZipOnAction" style="-fx-text-fill: white;&#10;-fx-padding: 5 10 5 10;&#10;-fx-font-family: &quot;Helvetica&quot;;&#10;-fx-font-size: 12px;&#10;-fx-font-weight: bold;&#10;-fx-background-color: linear-gradient(#686868 0%, #232723 25%, #373837 75%, #757575 100%);&#10;-fx-background-radius: 9;" text="Enviar" />
+                <Label fx:id="lblZipar" font="$x1" layoutX="70.0" layoutY="196.0" text="" />
+              </children>
+            </AnchorPane>
+          </content>
+        </Tab>
+        <Tab style="-fx-padding: 5 10 5 10;&#10;-fx-font-family: &quot;Helvetica&quot;;&#10;-fx-font-size: 12px;&#10;-fx-font-weight: bold;&#10;-fx-background-color: linear-gradient(#232723 0%, #fff 25%, #fff 75%, #232723 100%);&#10;-fx-background-radius: 15;" text="Modificar Video">
+          <content>
+            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #c3c4c4;">
+              <children>
+                <Button layoutX="300.0" layoutY="34.0" mnemonicParsing="false" onAction="#btnSelecionarModVidOnAction" style="-fx-text-fill: white;&#10;-fx-padding: 5 10 5 10;&#10;-fx-font-family: &quot;Helvetica&quot;;&#10;-fx-font-size: 12px;&#10;-fx-font-weight: bold;&#10;-fx-background-color: linear-gradient(#686868 0%, #232723 25%, #373837 75%, #757575 100%);&#10;-fx-background-radius: 9;" text="Selecionar Vídeo" />
+                <TextField id="tfCaminho" fx:id="tfCaminhoModVid" layoutX="42.0" layoutY="34.0" prefWidth="233.0" />
+                <Button layoutX="434.0" layoutY="34.0" mnemonicParsing="false" onAction="#btnEnviarModVidOnAction" style="-fx-text-fill: white;&#10;-fx-padding: 5 10 5 10;&#10;-fx-font-family: &quot;Helvetica&quot;;&#10;-fx-font-size: 12px;&#10;-fx-font-weight: bold;&#10;-fx-background-color: linear-gradient(#686868 0%, #232723 25%, #373837 75%, #757575 100%);&#10;-fx-background-radius: 9;" text="Enviar" />
+                <MediaView fx:id="mvVideo" fitHeight="250.0" fitWidth="450.0" layoutX="75.0" layoutY="76.0" />
+              </children>
+            </AnchorPane>
+          </content>
+        </Tab>
+        <Tab style="-fx-padding: 5 10 5 10;&#10;-fx-font-family: &quot;Helvetica&quot;;&#10;-fx-font-size: 12px;&#10;-fx-font-weight: bold;&#10;-fx-background-color: linear-gradient(#232723 0%, #fff 25%, #fff 75%, #232723 100%);&#10;-fx-background-radius: 15;" text="Enviar Video">
+          <content>
+            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #c3c4c4;">
+              <children>
+                <Button layoutX="300.0" layoutY="34.0" mnemonicParsing="false" onAction="#btnSelecionarEnvVidOnAction" style="-fx-text-fill: white;&#10;-fx-padding: 5 10 5 10;&#10;-fx-font-family: &quot;Helvetica&quot;;&#10;-fx-font-size: 12px;&#10;-fx-font-weight: bold;&#10;-fx-background-color: linear-gradient(#686868 0%, #232723 25%, #373837 75%, #757575 100%);&#10;-fx-background-radius: 9;" text="Selecionar" />
+                <TextField id="tfCaminho" fx:id="tfCaminhoEnvVid" layoutX="42.0" layoutY="34.0" prefWidth="233.0" />
+                <Button layoutX="419.0" layoutY="34.0" mnemonicParsing="false" onAction="#btnEnviarEnvVidOnAction" style="-fx-text-fill: white;&#10;-fx-padding: 5 10 5 10;&#10;-fx-font-family: &quot;Helvetica&quot;;&#10;-fx-font-size: 12px;&#10;-fx-font-weight: bold;&#10;-fx-background-color: linear-gradient(#686868 0%, #232723 25%, #373837 75%, #757575 100%);&#10;-fx-background-radius: 9;" text="Enviar Vídeo" />
+                <Label fx:id="lblEnvVid" font="$x1" layoutX="47.0" layoutY="99.0" text="" />
+              </children>
+            </AnchorPane>
+          </content>
+        </Tab>
+        <Tab closable="true" disable="false" style="-fx-padding: 5 10 5 10;&#10;-fx-font-family: &quot;Helvetica&quot;;&#10;-fx-font-size: 12px;&#10;-fx-font-weight: bold;&#10;-fx-background-color: linear-gradient(#232723 0%, #fff 25%, #fff 75%, #232723 100%);&#10;-fx-background-radius: 15;" text="Matriz Inversa">
+          <content>
+            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #c3c4c4;">
+              <children>
+                <TextField fx:id="tfNum1" alignment="CENTER" layoutX="30.0" layoutY="77.0" prefHeight="45.0" prefWidth="65.0" style="" />
+                <TextField fx:id="tfNum2" alignment="CENTER" layoutX="110.0" layoutY="77.0" prefHeight="45.0" prefWidth="65.0" style="" />
+                <TextField fx:id="tfNum3" alignment="CENTER" layoutX="190.0" layoutY="77.0" prefHeight="45.0" prefWidth="65.0" style="" />
+                <TextField fx:id="tfNum4" alignment="CENTER" layoutX="270.0" layoutY="77.0" prefHeight="45.0" prefWidth="65.0" style="" />
+                <TextField fx:id="tfNum5" alignment="CENTER" layoutX="30.0" layoutY="137.0" prefHeight="45.0" prefWidth="65.0" style="" />
+                <TextField fx:id="tfNum6" alignment="CENTER" layoutX="110.0" layoutY="137.0" prefHeight="45.0" prefWidth="65.0" style="" />
+                <TextField fx:id="tfNum7" alignment="CENTER" layoutX="190.0" layoutY="137.0" prefHeight="45.0" prefWidth="65.0" style="" />
+                <TextField fx:id="tfNum8" alignment="CENTER" layoutX="270.0" layoutY="137.0" prefHeight="45.0" prefWidth="65.0" style="" />
+                <TextField fx:id="tfNum9" alignment="CENTER" layoutX="30.0" layoutY="197.0" prefHeight="45.0" prefWidth="65.0" style="" />
+                <TextField fx:id="tfNum10" alignment="CENTER" layoutX="110.0" layoutY="197.0" prefHeight="45.0" prefWidth="65.0" style="" />
+                <TextField id="tfNum12" fx:id="tfNum11" alignment="CENTER" layoutX="188.0" layoutY="197.0" prefHeight="45.0" prefWidth="65.0" style="" />
+                <TextField fx:id="tfNum12" alignment="CENTER" layoutX="268.0" layoutY="197.0" prefHeight="45.0" prefWidth="65.0" style="" />
+                <TextField fx:id="tfNum13" alignment="CENTER" layoutX="28.0" layoutY="257.0" prefHeight="45.0" prefWidth="65.0" style="" />
+                <TextField fx:id="tfNum14" alignment="CENTER" layoutX="108.0" layoutY="257.0" prefHeight="45.0" prefWidth="65.0" style="" />
+                <TextField fx:id="tfNum15" alignment="CENTER" layoutX="188.0" layoutY="257.0" prefHeight="45.0" prefWidth="65.0" style="" />
+                <TextField fx:id="tfNum16" alignment="CENTER" layoutX="268.0" layoutY="257.0" prefHeight="45.0" prefWidth="65.0" style="" />
+                <RadioButton layoutX="195.0" layoutY="32.0" mnemonicParsing="false" onAction="#rb2x2OnAction" selected="false" style="-fx-text-fill: white;&#10;-fx-padding: 5 10 5 10;&#10;-fx-font-family: &quot;Helvetica&quot;;&#10;-fx-font-size: 12px;&#10;-fx-font-weight: bold;&#10;-fx-background-color: linear-gradient(#686868 0%, #232723 25%, #373837 75%, #757575 100%);&#10;-fx-background-radius: 9;" text="2x2">
+                  <toggleGroup>
+                    <ToggleGroup fx:id="tipoMatriz" />
+                  </toggleGroup>
+                </RadioButton>
+                <RadioButton layoutX="125.0" layoutY="32.0" mnemonicParsing="false" onAction="#rb3x3OnAction" style="-fx-text-fill: white;&#10;-fx-padding: 5 10 5 10;&#10;-fx-font-family: &quot;Helvetica&quot;;&#10;-fx-font-size: 12px;&#10;-fx-font-weight: bold;&#10;-fx-background-color: linear-gradient(#686868 0%, #232723 25%, #373837 75%, #757575 100%);&#10;-fx-background-radius: 9;" text="3x3" toggleGroup="$tipoMatriz" />
+                <RadioButton layoutX="56.0" layoutY="32.0" mnemonicParsing="false" onAction="#rb4x4OnAction" selected="true" style="-fx-text-fill: white;&#10;-fx-padding: 5 10 5 10;&#10;-fx-font-family: &quot;Helvetica&quot;;&#10;-fx-font-size: 12px;&#10;-fx-font-weight: bold;&#10;-fx-background-color: linear-gradient(#686868 0%, #232723 25%, #373837 75%, #757575 100%);&#10;-fx-background-radius: 9;" text="4x4" toggleGroup="$tipoMatriz" />
+                <Button layoutX="482.0" layoutY="311.0" mnemonicParsing="false" onAction="#btnCalcularInvOnAction" style="-fx-text-fill: white;&#10;-fx-padding: 5 10 5 10;&#10;-fx-font-family: &quot;Helvetica&quot;;&#10;-fx-font-size: 12px;&#10;-fx-font-weight: bold;&#10;-fx-background-color: linear-gradient(#686868 0%, #232723 25%, #373837 75%, #757575 100%);&#10;-fx-background-radius: 9;" text="Calcular" textAlignment="LEFT" />
+                <Text fx:id="txtMatInv1" layoutX="380.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" text="" />
+                <Text fx:id="txtMatInv2" layoutX="430.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" text="" />
+                <Text fx:id="txtMatInv3" layoutX="480.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" text="" />
+                <Text fx:id="txtMatInv4" layoutX="530.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" text="" />
+                <Text fx:id="txtMatInv5" layoutX="380.0" layoutY="146.0" strokeType="OUTSIDE" strokeWidth="0.0" text="" />
+                <Text fx:id="txtMatInv6" layoutX="430.0" layoutY="146.0" strokeType="OUTSIDE" strokeWidth="0.0" text="" />
+                <Text fx:id="txtMatInv7" layoutX="480.0" layoutY="146.0" strokeType="OUTSIDE" strokeWidth="0.0" text="" />
+                <Text fx:id="txtMatInv8" layoutX="530.0" layoutY="146.0" strokeType="OUTSIDE" strokeWidth="0.0" text="" />
+                <Text fx:id="txtMatInv9" layoutX="380.0" layoutY="196.0" strokeType="OUTSIDE" strokeWidth="0.0" text="" />
+                <Text fx:id="txtMatInv10" layoutX="430.0" layoutY="196.0" strokeType="OUTSIDE" strokeWidth="0.0" text="" />
+                <Text fx:id="txtMatInv11" layoutX="480.0" layoutY="196.0" strokeType="OUTSIDE" strokeWidth="0.0" text="" />
+                <Text fx:id="txtMatInv12" layoutX="530.0" layoutY="196.0" strokeType="OUTSIDE" strokeWidth="0.0" text="" />
+                <Text fx:id="txtMatInv13" layoutX="380.0" layoutY="246.0" strokeType="OUTSIDE" strokeWidth="0.0" text="" />
+                <Text fx:id="txtMatInv14" layoutX="430.0" layoutY="246.0" strokeType="OUTSIDE" strokeWidth="0.0" text="" />
+                <Text fx:id="txtMatInv15" layoutX="480.0" layoutY="246.0" strokeType="OUTSIDE" strokeWidth="0.0" text="" />
+                <Text fx:id="txtMatInv16" layoutX="530.0" layoutY="246.0" strokeType="OUTSIDE" strokeWidth="0.0" text="" />
+              </children>
+            </AnchorPane>
+          </content>
+        </Tab>
+        <Tab style="-fx-padding: 5 10 5 10;&#10;-fx-font-family: &quot;Helvetica&quot;;&#10;-fx-font-size: 12px;&#10;-fx-font-weight: bold;&#10;-fx-background-color: linear-gradient(#232723 0%, #fff 25%, #fff 75%, #232723 100%);&#10;-fx-background-radius: 15;" text="Chat">
+          <content>
+            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #c3c4c4;">
+              <children>
+                <Button fx:id="btnIniciarChat" layoutX="46.0" layoutY="116.0" mnemonicParsing="false" onAction="#btnIniciarChatOnAction" style="-fx-text-fill: white;&#10;-fx-padding: 5 10 5 10;&#10;-fx-font-family: &quot;Helvetica&quot;;&#10;-fx-font-size: 12px;&#10;-fx-font-weight: bold;&#10;-fx-background-color: linear-gradient(#686868 0%, #232723 25%, #373837 75%, #757575 100%);&#10;-fx-background-radius: 9;" text="Iniciar Chat" />
+                <Text layoutX="47.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-family: &quot;Helvetica&quot;;&#10;-fx-fill: #006299;&#10;-fx-font-size: 15px;&#10;-fx-font-weight: bold;" text="* Para começar o chat, e só clicar no botão &quot;Iniciar Chat&quot;." />
+                <Text layoutX="46.0" layoutY="78.0" scaleX="1.0" scaleY="0.9999949877632202" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: #006299;&#10;-fx-font-family: &quot;Helvetica&quot;;&#10;-fx-font-size: 15px;&#10;-fx-font-weight: bold;" text="* Na janela do chat, escreva seu nome para começar a conversa." />
+              </children>
+            </AnchorPane>
+          </content>
+        </Tab>
+      </tabs>
+    </TabPane>
+  </children>
+</AnchorPane>
